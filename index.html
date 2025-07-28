@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roig Communications Cybersecurity Training</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide {
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: white;
+            padding: 60px 80px;
+            display: none;
+            overflow-y: auto;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide h1 {
+            color: #1a73e8;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #1a73e8;
+            padding-bottom: 20px;
+        }
+
+        .slide h2 {
+            color: #1557b0;
+            font-size: 2em;
+            margin-bottom: 25px;
+            margin-top: 40px;
+        }
+
+        .slide h3 {
+            color: #0066cc;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        .slide h4 {
+            color: #004499;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+
+        .slide p, .slide li {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .slide ul, .slide ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .slide li {
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            height: 80px;
+            background: #1a73e8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            color: white;
+        }
+
+        .nav-button {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: white;
+            color: #1a73e8;
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .highlight-box {
+            background: #e8f4fd;
+            border-left: 5px solid #1a73e8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .danger-box {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 20px 0;
+        }
+
+        .example-bad {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .example-good {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .large-text {
+            font-size: 1.3em;
+            font-weight: 500;
+        }
+
+        .company-logo {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #1a73e8;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 30px;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .slide h1 {
+                font-size: 2em;
+            }
+            .slide h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="company-logo">Roig Communications</div>
+        
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <div class="center-text">
+                <h1>Cybersecurity Awareness Training</h1>
+                <br><br>
+                <p class="large-text">Building a Secure Digital Workplace<br>SOC 2 Compliance Training</p>
+                <br><br>
+                <div class="highlight-box">
+                    <h3>Training Objectives</h3>
+                    <ul>
+                        <li>Understand cybersecurity fundamentals and why they matter</li>
+                        <li>Learn to create strong passwords and use multi-factor authentication</li>
+                        <li>Recognize and respond to phishing and social engineering attempts</li>
+                        <li>Practice safe browsing and device security</li>
+                        <li>Handle company data properly and protect privacy</li>
+                        <li>Work securely from remote locations</li>
+                        <li>Know how to respond to security incidents</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: What is Cybersecurity -->
+        <div class="slide">
+            <h1>What is Cybersecurity?</h1>
+            
+            <h2>Think of it Like Protecting Your Home</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Physical Home Security</h3>
+                    <ul>
+                        <li>Lock your doors</li>
+                        <li>Install security systems</li>
+                        <li>Be careful who you let inside</li>
+                        <li>Keep valuables in a safe</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Digital "Home" Security</h3>
+                    <ul>
+                        <li>Use strong passwords</li>
+                        <li>Install antivirus software</li>
+                        <li>Be careful what links you click</li>
+                        <li>Protect sensitive company data</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h3>Why Small Businesses Are Targeted</h3>
+                <ul>
+                    <li><strong>43% of cyberattacks</strong> target small businesses</li>
+                    <li><strong>60% of small companies</strong> go out of business within 6 months of a cyber incident</li>
+                    <li><strong>$2.98 million</strong> average cost of a data breach for small businesses</li>
+                    <li><strong>95% of successful attacks</strong> happen because someone made a mistake</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 3: Common Cyber Threats -->
+        <div class="slide">
+            <h1>Common Cyber Threats</h1>
+            
+            <div class="two-column">
+                <div>
+                    <h3>🦠 Malware (Digital Germs)</h3>
+                    <ul>
+                        <li><strong>Viruses:</strong> Spread from file to file</li>
+                        <li><strong>Trojans:</strong> Pretend to be helpful</li>
+                        <li><strong>Ransomware:</strong> Lock your files for money</li>
+                        <li><strong>Spyware:</strong> Secretly watch what you do</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🎣 Social Engineering</h3>
+                    <ul>
+                        <li><strong>Phishing:</strong> Fake emails to steal info</li>
+                        <li><strong>Spear Phishing:</strong> Targeted fake emails</li>
+                        <li><strong>Vishing:</strong> Phone call scams</li>
+                        <li><strong>Smishing:</strong> Text message scams</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Remember: Every Employee is a Security Guard</h3>
+                <p class="large-text">Your actions online can either protect the business or accidentally let criminals in. This training will teach you how to be an effective security guard.</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: SOC 2 Overview -->
+        <div class="slide">
+            <h1>SOC 2 Compliance</h1>
+            
+            <h2>What is SOC 2?</h2>
+            <div class="highlight-box">
+                <p class="large-text">SOC 2 is like a report card that shows our clients we're serious about protecting their information. It's like a restaurant getting a health department rating.</p>
+            </div>
+
+            <h2>The Five SOC 2 Trust Principles</h2>
+            <div class="two-column">
+                <div>
+                    <h4>🔒 Security</h4>
+                    <p>Do we protect information from unauthorized people? (Like having locks on doors)</p>
+                    
+                    <h4>⚡ Availability</h4>
+                    <p>Are our systems working when clients need them? (Like keeping the lights on)</p>
+                    
+                    <h4>✅ Processing Integrity</h4>
+                    <p>Do we handle information accurately? (Like a bank making sure transactions are correct)</p>
+                </div>
+                <div>
+                    <h4>🤐 Confidentiality</h4>
+                    <p>Do we keep secrets secret? (Like a doctor keeping medical records private)</p>
+                    
+                    <h4>🛡️ Privacy</h4>
+                    <p>Do we handle personal information properly? (Like asking permission before sharing someone's phone number)</p>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <h3>Your Role in SOC 2</h3>
+                <p>SOC 2 isn't just an IT responsibility - it requires everyone to follow security practices. When auditors check our compliance, they'll look at how well all employees follow security procedures.</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Password Security -->
+        <div class="slide">
+            <h1>Password Security</h1>
+            
+            <h2>Passwords Are Like Keys to Your House</h2>
+            <p class="large-text">Just as you wouldn't want your house key to be easy to copy or guess, your passwords should be hard for criminals to figure out.</p>
+
+            <div class="two-column">
+                <div class="example-bad">
+                    <h3>❌ Weak Passwords</h3>
+                    <ul>
+                        <li>"password123" - Common word + predictable numbers</li>
+                        <li>"Roig2024" - Company name + current year</li>
+                        <li>"admin" - Dictionary word</li>
+                        <li>"P@ssw0rd" - Simple substitutions</li>
+                    </ul>
+                </div>
+                <div class="example-good">
+                    <h3>✅ Strong Passwords</h3>
+                    <ul>
+                        <li>"Tr@il$Hiking&Coffee2024!" - Complex, long, unpredictable</li>
+                        <li>12+ characters minimum</li>
+                        <li>Mix of uppercase, lowercase, numbers, symbols</li>
+                        <li>Unique for each account</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Creating Strong Passwords: The Sentence Method</h3>
+                <ol>
+                    <li>Think of a memorable sentence: <em>"I love hiking trails with my dog every Saturday morning"</em></li>
+                    <li>Take first letters: <em>"Ilhtwmdesm"</em></li>
+                    <li>Add numbers and symbols: <em>"Ilhtwmdesm2024!"</em></li>
+                    <li>Mix in uppercase: <em>"IlhtWmdesM2024!"</em></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 6: Multi-Factor Authentication -->
+        <div class="slide">
+            <h1>Multi-Factor Authentication (MFA)</h1>
+            
+            <div class="highlight-box">
+                <h2>MFA is Like Having Multiple Locks on Your Door</h2>
+                <p class="large-text">Even if someone guesses your password (picks your first lock), they still can't get in because they need a second form of identification.</p>
+            </div>
+
+            <h2>Three Types of "Proof" You Can Provide</h2>
+            <div class="two-column">
+                <div>
+                    <h3>🧠 Something You KNOW</h3>
+                    <ul>
+                        <li>Password</li>
+                        <li>PIN</li>
+                        <li>Security question answer</li>
+                    </ul>
+
+                    <h3>📱 Something You HAVE</h3>
+                    <ul>
+                        <li>Phone</li>
+                        <li>Security token</li>
+                        <li>Smart card</li>
+                        <li>Email access</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>👤 Something You ARE</h3>
+                    <ul>
+                        <li>Fingerprint</li>
+                        <li>Face recognition</li>
+                        <li>Voice recognition</li>
+                    </ul>
+
+                    <h3>🏦 Real-World Example</h3>
+                    <p><strong>Banking ATM:</strong> You need your card (something you have) AND your PIN (something you know)</p>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <h3>Best Practice: Use Authenticator Apps</h3>
+                <p>Google Authenticator, Microsoft Authenticator, or Authy are more secure than SMS text messages and work without internet connection.</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Phishing Recognition -->
+        <div class="slide">
+            <h1>Recognizing Phishing Attacks</h1>
+            
+            <h2>What is Phishing?</h2>
+            <div class="highlight-box">
+                <p class="large-text">Phishing is like fishing, but instead of using bait to catch fish, criminals use fake emails, websites, or messages to "catch" your personal information, passwords, or money.</p>
+            </div>
+
+            <h2>Red Flags to Watch For</h2>
+            <div class="two-column">
+                <div>
+                    <h3>⚠️ Language Red Flags</h3>
+                    <ul>
+                        <li><strong>Urgent language:</strong> "Immediate action required"</li>
+                        <li><strong>Threatening:</strong> "Your account will be closed"</li>
+                        <li><strong>Generic greetings:</strong> "Dear Customer"</li>
+                        <li><strong>Emotional manipulation:</strong> "You've won!"</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🔍 Technical Red Flags</h3>
+                    <ul>
+                        <li><strong>Suspicious sender addresses</strong></li>
+                        <li><strong>Mismatched URLs</strong> (hover to check)</li>
+                        <li><strong>Unexpected attachments</strong></li>
+                        <li><strong>Poor grammar/spelling</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="danger-box">
+                <h3>The "Hover Test" - Important Skill!</h3>
+                <ol>
+                    <li>Receive an email with a link</li>
+                    <li>Don't click immediately - pause and be suspicious</li>
+                    <li>Hover your mouse over the link without clicking</li>
+                    <li>Look at the actual URL that appears</li>
+                    <li>Compare it to what you expect</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 8: Phishing Response -->
+        <div class="slide">
+            <h1>How to Respond to Suspicious Messages</h1>
+            
+            <h2>The STOP-THINK-VERIFY-REPORT Process</h2>
+            
+            <div class="two-column">
+                <div>
+                    <div class="danger-box">
+                        <h3>1. STOP 🛑</h3>
+                        <ul>
+                            <li>Don't click any links</li>
+                            <li>Don't download attachments</li>
+                            <li>Don't provide information</li>
+                            <li>Don't panic or rush</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h3>2. THINK 🤔</h3>
+                        <ul>
+                            <li>Is this message expected?</li>
+                            <li>Does the request make sense?</li>
+                            <li>Is the sender who they claim to be?</li>
+                            <li>What would happen if this is fake?</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="highlight-box">
+                        <h3>3. VERIFY ✅</h3>
+                        <ul>
+                            <li>Contact sender through different method</li>
+                            <li>Check official website directly</li>
+                            <li>Ask supervisor or IT if unsure</li>
+                            <li>Look up sender's phone number independently</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="success-box">
+                        <h3>4. REPORT 📞</h3>
+                        <ul>
+                            <li>Forward suspicious emails to: <strong>security@roigcommunications.com</strong></li>
+                            <li>Report suspicious calls to supervisor</li>
+                            <li>Document what happened and when</li>
+                            <li>Don't be embarrassed - reporting helps everyone</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Device Security -->
+        <div class="slide">
+            <h1>Device Security & Safe Browsing</h1>
+            
+            <h2>Your Antivirus = Your Computer's Immune System</h2>
+            <div class="highlight-box">
+                <p class="large-text">Antivirus software recognizes harmful software and stops it before it can damage your computer or steal information.</p>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>✅ DO</h3>
+                    <ul>
+                        <li>Keep antivirus running always</li>
+                        <li>Allow automatic updates</li>
+                        <li>Run regular scans</li>
+                        <li>Pay attention to alerts</li>
+                        <li>Report problems to IT</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>❌ DON'T</h3>
+                    <ul>
+                        <li>Disable protection to install software</li>
+                        <li>Ignore warnings</li>
+                        <li>Install multiple antivirus programs</li>
+                        <li>Click "Allow" unless absolutely sure</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Safe Browsing Guidelines</h2>
+            <div class="warning-box">
+                <h3>Dangerous Download Sources to Avoid</h3>
+                <ul>
+                    <li><strong>Peer-to-peer networks</strong> (BitTorrent, LimeWire) - Often contain malware</li>
+                    <li><strong>Suspicious software sites</strong> - "Free" versions of expensive software</li>
+                    <li><strong>Pop-up advertisements</strong> - "Download now" buttons are often malware</li>
+                    <li><strong>Email attachments from strangers</strong> - Never open these</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 10: Software Updates -->
+        <div class="slide">
+            <h1>Software Updates: Your Digital Armor</h1>
+            
+            <div class="highlight-box">
+                <h2>Think of Updates Like Fixing Holes in a Fence</h2>
+                <p class="large-text">Criminals constantly look for vulnerabilities (holes) in software, and updates patch these holes.</p>
+            </div>
+
+            <h2>Update Priority Levels</h2>
+            <div class="danger-box">
+                <h3>🚨 Critical Security Updates (Install Immediately)</h3>
+                <ul>
+                    <li>Operating system patches (Windows Updates, macOS updates)</li>
+                    <li>Browser security updates (Chrome, Firefox, Safari, Edge)</li>
+                    <li>Security software updates (antivirus, firewall)</li>
+                </ul>
+                <p><strong>Why urgent:</strong> These fix vulnerabilities that criminals are actively exploiting</p>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Important Software Updates (Install Within a Week)</h3>
+                <ul>
+                    <li>Business applications (Microsoft Office, Adobe products)</li>
+                    <li>Communication tools (email clients, messaging apps)</li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <h3>✅ Company Update Policy</h3>
+                <ul>
+                    <li>Enable automatic updates for operating systems and browsers</li>
+                    <li>Install critical security patches within 48 hours</li>
+                    <li>Allow restarts when needed - many updates require a computer restart</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 11: Data Classification -->
+        <div class="slide">
+            <h1>Data Handling & Privacy</h1>
+            
+            <h2>Data Classification: Like Organizing Items in Your House</h2>
+            
+            <div class="two-column">
+                <div>
+                    <div class="success-box">
+                        <h4>🌐 Public Data</h4>
+                        <p><strong>Like items in your front yard</strong></p>
+                        <ul>
+                            <li>Marketing materials</li>
+                            <li>Public website content</li>
+                            <li>Press releases</li>
+                        </ul>
+                        <p><strong>Risk if exposed:</strong> None - it's already public</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>🏢 Internal Data</h4>
+                        <p><strong>Like items visible through windows</strong></p>
+                        <ul>
+                            <li>Company policies</li>
+                            <li>Internal newsletters</li>
+                            <li>General project information</li>
+                        </ul>
+                        <p><strong>Risk if exposed:</strong> Minor embarrassment</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="warning-box">
+                        <h4>🔒 Confidential Data</h4>
+                        <p><strong>Like items in your living room</strong></p>
+                        <ul>
+                            <li>Financial reports</li>
+                            <li>Strategic business plans</li>
+                            <li>Employee salary information</li>
+                            <li>Client contracts</li>
+                        </ul>
+                        <p><strong>Risk if exposed:</strong> Significant financial loss</p>
+                    </div>
+                    
+                    <div class="danger-box">
+                        <h4>🔐 Restricted Data</h4>
+                        <p><strong>Like items in your safe</strong></p>
+                        <ul>
+                            <li>Customer credit card numbers</li>
+                            <li>Social Security numbers</li>
+                            <li>Medical records</li>
+                            <li>Trade secrets</li>
+                        </ul>
+                        <p><strong>Risk if exposed:</strong> Massive financial loss, legal liability</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: PII Handling -->
+        <div class="slide">
+            <h1>Personally Identifiable Information (PII)</h1>
+            
+            <div class="highlight-box">
+                <h2>What is PII?</h2>
+                <p class="large-text">PII is any information that can be used to identify a specific person. Think of it like puzzle pieces - combine several pieces and you can identify the person.</p>
+            </div>
+
+            <h2>Types of PII (Most to Least Sensitive)</h2>
+            <div class="two-column">
+                <div>
+                    <div class="danger-box">
+                        <h3>Direct Identifiers</h3>
+                        <p><em>Can identify someone by themselves</em></p>
+                        <ul>
+                            <li>Social Security Numbers</li>
+                            <li>Driver's License Numbers</li>
+                            <li>Credit Card Numbers</li>
+                            <li>Bank Account Numbers</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h3>Indirect Identifiers</h3>
+                        <p><em>Can identify when combined</em></p>
+                        <ul>
+                            <li>Full Name + Date of Birth</li>
+                            <li>Address + Phone Number</li>
+                            <li>Email + Employer</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h3>PII Handling Steps</h3>
+                    <div class="success-box">
+                        <h4>Collection</h4>
+                        <p>Only take what you need for your job</p>
+                        
+                        <h4>Storage</h4>
+                        <p>Use encrypted systems, limit access</p>
+                        
+                        <h4>Usage</h4>
+                        <p>Only use for intended purpose</p>
+                        
+                        <h4>Sharing</h4>
+                        <p>Verify need, get authorization, use secure methods</p>
+                        
+                        <h4>Disposal</h4>
+                        <p>Shred physical documents, use secure deletion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Remote Work Security -->
+        <div class="slide">
+            <h1>Remote Work Security</h1>
+            
+            <h2>VPN: Your Secure Tunnel</h2>
+            <div class="highlight-box">
+                <p class="large-text">A VPN is like having a private, encrypted tunnel between your computer and the company's network. Even in a coffee shop, all your traffic goes through this secure tunnel.</p>
+            </div>
+
+            <h2>When You MUST Use VPN</h2>
+            <ul class="large-text">
+                <li>🏢 Accessing any company systems (email, file servers, business applications)</li>
+                <li>☕ Working on public Wi-Fi (coffee shops, airports, hotels, libraries)</li>
+                <li>🤝 Connecting to client systems</li>
+                <li>🏠 Working from home (for consistency and best practice)</li>
+            </ul>
+
+            <div class="two-column">
+                <div class="success-box">
+                    <h3>✅ VPN Best Practices</h3>
+                    <ul>
+                        <li>Connect to VPN first, before accessing company resources</li>
+                        <li>Verify connection status - look for VPN icon</li>
+                        <li>Keep VPN running throughout work session</li>
+                        <li>Contact IT immediately if problems occur</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <h3>⚠️ Wi-Fi Network Safety</h3>
+                    <ul>
+                        <li><strong>Safest:</strong> Your secure home network (WPA3/WPA2)</li>
+                        <li><strong>Okay:</strong> Company guest network</li>
+                        <li><strong>Risky:</strong> Public Wi-Fi (use VPN required)</li>
+                        <li><strong>Never:</strong> Open/unsecured networks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Incident Response -->
+        <div class="slide">
+            <h1>Security Incident Response</h1>
+            
+            <h2>What is a Security Incident?</h2>
+            <div class="highlight-box">
+                <p class="large-text">Any event that threatens the safety of our computer systems, data, or business operations. Think of it like a medical emergency - the faster you get help, the better the outcome.</p>
+            </div>
+
+            <h2>Warning Signs to Watch For</h2>
+            <div class="two-column">
+                <div>
+                    <h3>🖥️ Computer Issues</h3>
+                    <ul>
+                        <li>Unexpected slowdowns or crashes</li>
+                        <li>Strange network activity</li>
+                        <li>Unusual applications running</li>
+                        <li>Files you didn't create</li>
+                    </ul>
+                    
+                    <h3>👤 Account Issues</h3>
+                    <ul>
+                        <li>Unexpected password changes</li>
+                        <li>Login notifications from unknown locations</li>
+                        <li>Emails you didn't send in "Sent" folder</li>
+                        <li>Friends saying they received strange messages from you</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>📁 File Issues</h3>
+                    <ul>
+                        <li>Missing files</li>
+                        <li>Files with strange extensions (.encrypted, .locked)</li>
+                        <li>Desktop wallpaper changed to ransom message</li>
+                        <li>Unable to open files that previously worked</li>
+                    </ul>
+                    
+                    <div class="danger-box">
+                        <h3>🚨 If You See Ransomware</h3>
+                        <p><strong>DON'T</strong> try to recover files yourself<br>
+                        <strong>DO</strong> disconnect and report immediately</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Incident Response Process -->
+        <div class="slide">
+            <h1>The STOP-PRESERVE-REPORT Process</h1>
+            
+            <div class="two-column">
+                <div>
+                    <div class="danger-box">
+                        <h3>1. STOP 🛑</h3>
+                        <ul>
+                            <li>Don't continue using affected system</li>
+                            <li>Don't try to "investigate"</li>
+                            <li>Don't try to "fix it"</li>
+                            <li>Don't shut down unless told to</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h3>2. PRESERVE 📸</h3>
+                        <ul>
+                            <li>Don't delete anything</li>
+                            <li>Take photos of error messages</li>
+                            <li>Write down what happened</li>
+                            <li>Note the time and what you were doing</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="success-box">
+                        <h3>3. REPORT 📞</h3>
+                        <h4>Contact Information:</h4>
+                        <ul>
+                            <li><strong>Emergency Security:</strong> [Phone] - 24/7</li>
+                            <li><strong>IT Security Email:</strong> security@roigcommunications.com</li>
+                            <li><strong>IT Manager:</strong> [Phone and email]</li>
+                        </ul>
+                        
+                        <h4>Information to Provide:</h4>
+                        <ul>
+                            <li>What happened and when</li>
+                            <li>Which systems are affected</li>
+                            <li>What you were doing when it occurred</li>
+                            <li>Current status</li>
+                            <li>Your contact information</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box center-text">
+                <h3>Remember: You're Not Expected to Be a Security Expert</h3>
+                <p class="large-text">Your job is to recognize when something might be wrong and get help. When in doubt, report it. False alarms are much better than missed real incidents.</p>
+            </div>
+        </div>
+
+        <!-- Slide 16: Daily Security Checklist -->
+        <div class="slide">
+            <h1>Your Daily Security Checklist</h1>
+            
+            <div class="two-column">
+                <div>
+                    <div class="success-box">
+                        <h3>📅 Daily Tasks</h3>
+                        <ul>
+                            <li>☐ Connect to VPN before accessing company resources</li>
+                            <li>☐ Verify you're on a secure Wi-Fi network</li>
+                            <li>☐ Lock computer when stepping away (Windows+L)</li>
+                            <li>☐ Think before clicking links or attachments</li>
+                            <li>☐ Log out of company accounts at end of day</li>
+                            <li>☐ Store work devices securely overnight</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h3>📅 Weekly Tasks</h3>
+                        <ul>
+                            <li>☐ Install pending software updates</li>
+                            <li>☐ Review and clean up downloaded files</li>
+                            <li>☐ Check antivirus is running and updated</li>
+                            <li>☐ Verify VPN connection works properly</li>
+                            <li>☐ Review recent account activity</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="warning-box">
+                        <h3>🤔 When in Doubt</h3>
+                        <ul>
+                            <li><strong>Ask IT first</strong> - Better to ask a "stupid" question than cause an incident</li>
+                            <li><strong>Err on the side of caution</strong> - If something seems risky, don't do it</li>
+                            <li><strong>Report suspicious activity immediately</strong> - False alarms are better than missed threats</li>
+                            <li><strong>Keep work and personal separate</strong> - Don't mix business and personal activities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="center-text">
+                        <h3>🏆 Building a Security Culture</h3>
+                        <ul>
+                            <li>Report without fear - no punishment for legitimate concerns</li>
+                            <li>Learn from mistakes - every incident teaches us</li>
+                            <li>Share lessons learned - help colleagues stay safe</li>
+                            <li>Stay informed - keep up with new threats and policies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17: Quiz Instructions -->
+        <div class="slide">
+            <h1>Training Quiz</h1>
+            
+            <div class="center-text">
+                <h2>Test Your Knowledge</h2>
+                <div class="highlight-box">
+                    <h3>Quiz Instructions</h3>
+                    <ul class="large-text">
+                        <li>10 multiple choice questions</li>
+                        <li>Must score 80% or higher to pass</li>
+                        <li>Covers all training modules</li>
+                        <li>Take your time and think carefully</li>
+                        <li>You can retake if needed</li>
+                    </ul>
+                </div>
+                
+                <br><br>
+                
+                <div class="success-box">
+                    <h3>After Passing the Quiz</h3>
+                    <p class="large-text">You'll receive a certificate of completion valid for one year. Annual refresher training is required to maintain certification.</p>
+                </div>
+                
+                <br>
+                
+                <div class="warning-box">
+                    <h3>Questions? Need Help?</h3>
+                    <p class="large-text">Contact IT at <strong>it@roigcommunications.com</strong> or your supervisor if you have any questions about the training material.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 18: Thank You -->
+        <div class="slide">
+            <div class="center-text">
+                <h1>Thank You!</h1>
+                <br><br>
+                <h2>You're Now a Cyber Security Guardian</h2>
+                
+                <div class="success-box">
+                    <h3>🎯 What You've Learned</h3>
+                    <ul class="large-text">
+                        <li>✅ Cybersecurity fundamentals and SOC 2 compliance</li>
+                        <li>✅ Strong password creation and MFA setup</li>
+                        <li>✅ Phishing recognition and response</li>
+                        <li>✅ Safe browsing and device security</li>
+                        <li>✅ Proper data handling and privacy protection</li>
+                        <li>✅ Remote work security best practices</li>
+                        <li>✅ Incident recognition and response procedures</li>
+                    </ul>
+                </div>
+                
+                <br>
+                
+                <div class="highlight-box">
+                    <h3>🛡️ Remember</h3>
+                    <p class="large-text">Every employee is a security guard for our company. Your vigilance and proper security practices protect not just your work, but our clients' trust and our business success.</p>
+                </div>
+                
+                <br>
+                
+                <div class="warning-box">
+                    <h3>📞 Need Help? Always Available</h3>
+                    <p class="large-text"><strong>Security Team:</strong> security@roigcommunications.com<br>
+                    <strong>IT Support:</strong> it@roigcommunications.com<br>
+                    <strong>Emergency:</strong> [24/7 Phone Number]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <span class="slide-counter" id="slideCounter">1 / 18</span>
+            <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            document.getElementById('slideCounter').textContent = `${currentSlide + 1} / ${totalSlides}`;
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            if (direction === 1 && currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            } else if (direction === -1 && currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' && currentSlide < totalSlides - 1) {
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft' && currentSlide > 0) {
+                changeSlide(-1);
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
