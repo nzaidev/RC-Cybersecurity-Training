@@ -208,6 +208,37 @@
                 font-size: 1.5em;
             }
         }
+        .quiz-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.3em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 10px;
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(40, 167, 69, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        .quiz-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .button-container {
+            margin: 30px 0;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -968,14 +999,23 @@
                 
                 <br>
                 
-                <div class="warning-box">
-                    <h3>📞 Need Help? Always Available</h3>
-                    <p class="large-text"><strong>Security Team:</strong> security@roigcommunications.com<br>
-                    <strong>IT Support:</strong> security@roigcommunications.com<br>
-                    <strong>Emergency:</strong> [Nick Zarzycki - 703.498.9339]</p>
-                </div>
-            </div>
+               <div class="warning-box">
+            <h3>📞 Need Help? Always Available</h3>
+            <p class="large-text"><strong>Security Team:</strong> security@roigcommunications.com<br>
+            <strong>IT Support:</strong> it@roigcommunications.com<br>
+            <strong>Emergency:</strong> [24/7 Phone Number]</p>
         </div>
+
+        <div class="button-container">
+            <h3 style="color: #1a73e8; margin-bottom: 20px;">Ready to Test Your Knowledge?</h3>
+            <a href="quiz.html" class="quiz-btn">🎯 Take the Quiz Now</a>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Quiz Requirements:</strong> You must score 80% or higher to receive your completion certificate. The quiz covers all training modules and takes approximately 15-20 minutes to complete.</p>
+        </div>
+    </div>
+</div>
 
         <!-- Controls -->
         <div class="controls">
